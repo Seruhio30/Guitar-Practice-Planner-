@@ -1,5 +1,7 @@
 import { getSuggestions } from "./mediaService.js";
 
+let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+
 const resultsContainer = document.querySelector('#results');
 resultsContainer.addEventListener("click", (e) => {
     const btn = e.target.closest(".fav-btn");
@@ -8,7 +10,7 @@ resultsContainer.addEventListener("click", (e) => {
     const title = btn.dataset.title;
     console.log("Adding favorite:", title);
 
-    const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+    favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
     if (favorites.includes(title)) {
         btn.textContent = "Saved";
         btn.disabled = true;
@@ -41,19 +43,30 @@ buttonSuggest.addEventListener("click", () => {
         return;
     }
 
-    const html = results.map(item => `
-            <article class="bg-slate-900/40 border border-slate-700 rounded-xl p-4">
-                <h4 class="text-slate-100 font-semibold">${item.title}</h4>
-                <p class="mt-1 text-slate-400 text-sm">
-                    ${item.type.toUpperCase()} · ${item.level} · ${item.source}
-                </p>
-                <a href="${item.url}" class="mt-3 inline-flex text-blue-400 hover:text-blue-300 transition-colors" target="_blank" rel="noopener">
-                    Open   
-                </a>
-                <button class="fav-btn" data-title="${item.title}">Add to favorites</button>
+    const html = results.map(item => {
+        const isFavorite = favorites.includes(item.title);
 
-            </article>
-        `).join("");
+        return `
+    <article class="bg-slate-900/40 border border-slate-700 rounded-xl p-4">
+      <h4 class="text-slate-100 font-semibold">${item.title}</h4>
+      <p class="mt-1 text-slate-400 text-sm">
+        ${item.type.toUpperCase()} · ${item.level} · ${item.source}
+      </p>
+
+      <a href="${item.url}" class="mt-3 inline-flex text-blue-400 hover:text-blue-300 transition-colors">
+        Open
+      </a>
+
+      <button 
+        class="fav-btn"
+        data-title="${item.title}"
+        ${isFavorite ? "disabled" : ""}
+      >
+        ${isFavorite ? "Saved" : "Add to favorites"}
+      </button>
+    </article>
+  `;
+    }).join("");
 
     resultsContainer.innerHTML = html;
 
