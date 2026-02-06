@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <title>Practice</title>
+</head>
+
+<body class="bg-slate-900 text-slate-100 min-h-screen">
+    <div class="max-w-6xl mx-auto px-4">
+        <header class="flex items-center justify-between bg-slate-800/60 backdrop-blur border border-slate-700 
+            rounded-xl px-4 py-3 mt-4">
+
+            <div class="flex items-center gap-3">
+                <img class="h-10 w-auto" src="assets/logo1.png" alt="Guitar Practice Learner-Logo">
+
+                <h1 class="font-semibold tracking-tight style=" font-family: Poppins, sans-serif;">Guitar Practice
+                    Learner</h1>
+            </div>
+            <nav>
+                <ul class="flex items-center gap-6 list-none p-0 m-0">
+                    <li><a href="index.html" class="text-slate-300 hover:text-blue-400 transition-colors">Home</a></li>
+                    <li><a href="practice.html"
+                            class="text-slate-300 hover:text-blue-400 transition-colors">Practice</a></li>
+                    <li><a href="media.html" class="text-slate-300 hover:text-blue-400 transition-colors">Media</a></li>
+                </ul>
+            </nav>
+
+        </header>
+        <main>
+            <section class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 mt-6">
+
+                <h2 class="text-2x  md:text-3xl font-semibold">Create today’s practice session</h2>
+                <div>
+                    <p class="mt-2 text-slate-300">Pick your level, choose your focus, and let’s create your session.
+                    </p>
+                </div>
+
+            </section>
+
+            <section class="bg-slate-800/50  border border-slate-700 rounded-2xl p-6 mt-6">
+                <div class="grid gap-6 md:grid-cols-2">
+                    <div id="skill-level">
+
+                        <fieldset class="bg-slate-900/40 border border-slate-700 rounded-xl p-4">
+                            <legend class="px-2 text-slate-200 font-semibold">Nivel</legend>
+                            <label>
+                                <input type="radio" name="level" value="beginner" checked>
+                                Beginner
+                            </label>
+                            <label>
+                                <input type="radio" name="level" value="intermediate">
+                                Intermediate
+                            </label>
+                            <label>
+                                <input type="radio" name="level" value="advanced">
+                                Advanced
+                            </label>
+                        </fieldset>
+                    </div>
+                    <div id="practice-focus">
+                        <fieldset class="bg-slate-900/40 border border-slate-700 rounded-xl p-4">
+                            <legend class="px-2 text-slate-200 font-semibold">Enfoque</legend>
+                            <label>
+                                <input type="radio" name="focus" value="chords" checked>
+                                Chords
+                            </label>
+                            <label>
+                                <input type="radio" name="focus" value="scales">
+                                Scales
+                            </label>
+                            <label>
+                                <input type="radio" name="focus" value="songs">
+                                Songs
+                            </label>
+                        </fieldset>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex justify-center">
+                    <button class="inline-flex items-center justify-center bg-blue-500 hover:bg-blue-400 
+                    text-white font-semibold px-6 py-3 rounded-xl transition-colors 
+                    w-full md:w-auto" id="generate-session">Generate session</button>
+                </div>
+
+            </section>
+
+            <section class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 mt-6">
+
+                <div id="title">
+                    <h2 class="text-xl md:text-2xl font-semibold">Today’s session</h2>
+                </div>
+
+                <div class="session-container mt-4 bg-slate-900/40 border border-slate-700 rounded-xl p-4">
+                    <p class="placeholder text-slate-400 text-sm">Select your preferences and generate a session.</p>
+
+                </div>
+
+            </section>
+
+
+        </main>
+        <footer>
+            <div class="mt-10 py-6 text-slate-400 text-sm text-center">
+
+                <p>© 2026 Guitar Learner Practice BYUI WWD-330</p>
+                <p class="dev-credit">Desarrollado por <a
+                        href="https://seruhio30.github.io/Portfolio-SeruhioCode30-Front-End/"
+                        target="_blank">SeruhioCode30</a></p>
+            </div>
+
+        </footer>
+    </div>
+
+    <script type="module" src="js/practice.js"></script>
+
+</body>
+
+</html>

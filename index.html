@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Poppins (Headings) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Inter (Body text) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <title>Guitar Practice Planner</title>
+</head>
+
+<body class="bg-slate-900 text-slate-100 font-inter min-h-screen">
+
+    <div class="max-w-6xl mx-auto px-4">
+
+        <header class="flex items-center justify-between bg-slate-800/60 backdrop-blur border border-slate-700 
+            rounded-xl px-4 py-3 mt-4">
+
+            <div class="flex items-center gap-3">
+                <img class="h-10 w-auto" src="assets/logo1.png" alt="Guitar Practice Learner-Logo">
+
+                <h1 class="font-semibold tracking-tight style=" font-family: Poppins, sans-serif;">Guitar Practice
+                    Learner</h1>
+            </div>
+            <nav>
+                <ul class="flex items-center gap-6 list-none p-0 m-0">
+                    <li><a href="index.html" class="text-slate-300 hover:text-blue-400 transition-colors">Home</a></li>
+                    <li><a href="practice.html"
+                            class="text-slate-300 hover:text-blue-400 transition-colors">Practice</a></li>
+                    <li><a href="media.html" class="text-slate-300 hover:text-blue-400 transition-colors">Media</a></li>
+                </ul>
+            </nav>
+
+        </header>
+        <main>
+            <section
+                class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 mt-6 flex flex-col md:flex-row items-center gap-6 font-semibold tracking-tight">
+
+                <div class="flex-1">
+                    <h2 class="text-2xl md:text-4xl font-semibold leading-tight text-white">A structured way to practice
+                        guitar
+                        without wasting time jumping between guides.</h2>
+                    <h3 class="mt-3 text-slate-300 text-base md:text-lg max-w-prose">For people who want to learn guitar
+                        on their
+                        own, but with a clear and organized plan.</h3>
+                </div>
+                <div class="flex-1 flex justify-center">
+                    <img class="max-w-xs md:max-w-sm w-full" src="assets/logo1.png" alt="Blue guitar illustration">
+                </div>
+            </section>
+
+            
+
+            <section class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 mt-6">
+                <div>
+                    <ul class="grid grid-cols-2 md:grid-cols-4 gap-4 text-slate-200">
+                        <li class="bg-slate-900/40 border border-slate-700 rounded-xl px-4 py-3 text-center">Daily
+                            sessions</li>
+                        <li class="bg-slate-900/40 border border-slate-700 rounded-xl px-4 py-3 text-center">Timer</li>
+                        <li class="bg-slate-900/40 border border-slate-700 rounded-xl px-4 py-3 text-center">Progress
+                        </li>
+                        <li class="bg-slate-900/40 border border-slate-700 rounded-xl px-4 py-3 text-center">Favorites
+                        </li>
+                    </ul>
+                </div>
+
+            </section>
+            <section>
+                <div class="mt-6 flex justify-center">
+                    <a href="practice.html"
+                        class="inline-flex items-center justify-center bg-blue-500 hover:bg-blue-400 text-white font-semibold px-6 py-3 rounded-xl transition-colors">
+                        Start today
+                    </a>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="mt-10 py-6 text-slate-400 text-sm text-center">
+
+                <p>© 2026 Guitar Learner Practice BYUI WWD-330</p>
+                <p class="dev-credit">Desarrollado por <a
+                        href="https://seruhio30.github.io/Portfolio-SeruhioCode30-Front-End/"
+                        target="_blank">SeruhioCode30</a></p>
+            </div>
+
+        </footer>
+
+    </div>
+</body>
+
+</html>
