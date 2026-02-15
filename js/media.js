@@ -9,6 +9,28 @@ let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
 const resultsContainer = document.querySelector("#results");
 const buttonSuggest = document.querySelector("#get-suggestions");
 
+const queryInput = document.querySelector("#query");
+
+function updateSuggestButtonState() {
+  const q = queryInput.value.trim();
+
+  buttonSuggest.disabled = q.length === 0;
+
+  // feedback visual
+  buttonSuggest.classList.toggle("opacity-60", buttonSuggest.disabled);
+  buttonSuggest.classList.toggle("cursor-not-allowed", buttonSuggest.disabled);
+
+  // evita hover azul cuando está disabled (opcional)
+  if (buttonSuggest.disabled) {
+    buttonSuggest.classList.remove("hover:bg-blue-400");
+  } else {
+    buttonSuggest.classList.add("hover:bg-blue-400");
+  }
+}
+
+queryInput.addEventListener("input", updateSuggestButtonState);
+updateSuggestButtonState();
+
 // Favoritos (event delegation)
 resultsContainer.addEventListener("click", (e) => {
   const btn = e.target.closest(".fav-btn");
