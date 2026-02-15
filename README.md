@@ -1,64 +1,63 @@
-# Guitar-Practice-Planner
-
+# Guitar Practice Planner
 ## Overview
-Guitar Practice Planner is a web application designed to help self‑taught guitar learners follow a structured and motivating practice routine. Instead of wasting time searching through scattered guides, this app provides a definitive, organized path to progress.
 
-### Target Audience
-People learning guitar on their own.
+Guitar Practice Planner is a web application designed to help self-taught guitar learners follow a structured and organized practice routine.
+The goal is to reduce time wasted searching through random online resources and instead provide a focused daily plan with supporting materials.
 
-Learners who want to practice in an organized and efficient way.
+## Core Features
 
-Anyone looking for a tool that combines exercises, songs, and progress tracking.
+- Generate structured daily practice sessions based on skill level and focus.
 
-### Features
-- Skill level selection (beginner/intermediate).
+- Search for songs using a real external API.
 
-- Daily practice session generator (warm‑up, chords, scales, songs).
+- Display contextual information about songs or artists.
 
-- Chord and scale recommendations.
+- Save favorite songs locally using LocalStorage.
 
-- Song suggestions based on level (via Songsterr/Ultimate Guitar API).
+- Clean, distraction-free dark UI optimized for long practice sessions.
 
-- Embedded tutorial/backing track videos (via YouTube API).
+## External APIs Used
+### iTunes Search API
 
-- Practice timer with start/pause/reset.
+Used to fetch real song data based on user search input.
+Returned data includes:
 
-- Progress tracking & favorites list stored locally.
+- Song title
 
-- Responsive design for mobile and desktop.
+- Artist name
 
-### Tech Modules
-- UI Layout Module → app structure (header, footer, main container).
+- External link
 
-- Routing / Views Module → navigation between Home, Practice, Song/Video.
+- Artwork thumbnail
 
-- User Preferences Module → skill level & focus stored in localStorage.
+- This API provides live, real-world data for song discovery.
 
-- Practice Session Generator Module → builds daily routines.
+### Wikipedia REST API
 
-- External API Service Module → fetches data from Songsterr/Ultimate Guitar & YouTube.
+Used to retrieve contextual summaries about the searched song or artist.
+This allows the application to provide educational background information alongside the practice content.
 
-- Song Data Module → normalizes and displays chords/tabs.
+- Technical Implementation
 
-- Video Embed Module → embeds YouTube tutorials/backing tracks.
+- Built using HTML, Tailwind CSS, and vanilla JavaScript modules.
 
-- Timer Module → practice session timer.
+- Uses async/await for API requests.
 
-- Progress & Favorites Module → tracks achievements and favorites.
+- Organized service layer (mediaService, itunesService, wikiService).
 
-- Utilities / Helpers Module → formatting, validation, etc.
+- LocalStorage used for persistent favorites.
 
-### Design Identity
+- Modular architecture allows future API expansion (e.g., tutorial video integration).
 
-1. Color Scheme: Dark navy background, gray‑blue surfaces, blue accents, green for progress.
+## Future Improvements
 
-2. Typography: Poppins (headings), Inter (body).
+- Integrate YouTube Data API for embedded guitar tutorials.
 
-3. Style: Minimalist, distraction‑free, rounded buttons/cards, clear hierarchy.
+- Add user progress tracking and session history.
 
-4. App Icon: Guitar pick + clock/metronome symbol.
+- Improve filtering and recommendation logic.
 
-Timeline
+- Add timer integration for practice sessions.
 
 ## Project Planning
 [Trello Board: Guitar Practice Planner](https://trello.com/invite/b/697e92bead58ebf42b73f049/ATTI89e6cb4973ae87e462fb2fc878c785051B6C0ED7/guitar-practice-planner)

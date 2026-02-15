@@ -1,3 +1,4 @@
+import { scalesLibrary } from "./practiceLibrary.js";
 
 export function generateSession(level, focus) {
 
@@ -22,7 +23,17 @@ export function generateSession(level, focus) {
 
   //Elegir pasos base según focus
   const baseSteps = focusTemplates[focus] ?? focusTemplates.chords;
-     
+  // Add scale recommendations only when focus === "scales"
+  if (focus === "scales") {
+    const picks = (scalesLibrary[level] ?? scalesLibrary.beginner).slice(0, 2);
+
+    const focusStep = baseSteps.find((s) => s.name === "Focus block");
+    if (focusStep) {
+      focusStep.items = picks;
+    }
+  }
+
+
   //DEVOLVER la sesión 
   return {
     title: "Today's Practice Session",

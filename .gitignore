@@ -1,0 +1,7 @@
+# Ignorar archivo con la API key
+
+.env
+
+# Ignorar archivos temporales
+*.log
+*.tmp

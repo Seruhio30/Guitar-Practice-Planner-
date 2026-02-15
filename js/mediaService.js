@@ -1,17 +1,13 @@
-export function getSuggestions({ type, level, query }) {
-  const mockData = [
-    { title: "Wonderwall", type: "songs", level: "beginner", source: "Songsterr", url: "#" },
-    { title: "Basic Chord Changes", type: "videos", level: "beginner", source: "YouTube", url: "#" },
-    { title: "Pentatonic Scale Practice", type: "videos", level: "intermediate", source: "YouTube", url: "#" },
-    { title: "Hotel California", type: "songs", level: "advanced", source: "Songsterr", url: "#" }
-  ];
 
-  const filtered = mockData.filter(item => item.type === type && item.level === level);
+import { searchSongsItunes } from "./services/itunesService.js";
 
-  const q = (query ?? "").trim().toLowerCase();
-  const queryFiltered = q
-    ? filtered.filter(item => item.title.toLowerCase().includes(q))
-    : filtered;
+export async function getSuggestions({ type, level, query }) {
+  if (type === "songs") {
+    const songs = await searchSongsItunes(query, 8);
+    // opcional: guardo el level elegido como meta para UI
+    return songs.map(s => ({ ...s, level }));
+  }
 
-  return queryFiltered;
+  // videos: no API real por ahora
+  return [];
 }

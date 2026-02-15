@@ -109,6 +109,48 @@
 
             </section>
 
+            <section class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 mt-6">
+                <h3 class="text-xl font-semibold">Practice Timer</h3>
+
+                <div id="timer-display" class="mt-3 text-3xl font-semibold">00:00</div>
+
+                <div class="mt-4 flex gap-3 flex-wrap">
+                    <button id="timer-start"
+                        class="bg-blue-500 hover:bg-blue-400 text-white font-semibold px-4 py-2 rounded-xl transition-colors">
+                        Start
+                    </button>
+
+                    <button id="timer-pause"
+                        class="bg-slate-700 hover:bg-slate-600 text-white font-semibold px-4 py-2 rounded-xl transition-colors">
+                        Pause
+                    </button>
+
+                    <button id="timer-reset"
+                        class="bg-slate-800 hover:bg-slate-700 text-white font-semibold px-4 py-2 rounded-xl transition-colors border border-slate-700">
+                        Reset
+                    </button>
+                </div>
+            </section>
+
+            <section class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 mt-6">
+                <h3 class="text-xl font-semibold">Progress</h3>
+
+                <p id="completed-count" class="mt-2 text-slate-300 text-sm">
+                    Completed sessions: 0
+                </p>
+
+                <div id="completed-list" class="mt-3 grid gap-3"></div>
+
+
+                <div class="mt-4">
+                    <button id="complete-session"
+                        class="bg-green-600 hover:bg-green-500 text-white font-semibold px-4 py-2 rounded-xl transition-colors">
+                        Complete session
+                    </button>
+                </div>
+            </section>
+
+
 
         </main>
         <footer>
