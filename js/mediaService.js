@@ -8,6 +8,6 @@ export async function getSuggestions({ type, level, query }) {
     return songs.map(s => ({ ...s, level }));
   }
 
-  // videos: no API real por ahora
+  // videos: no API real por ahora lo hare en futuro fuera de curso
   return [];
 }

@@ -103,7 +103,7 @@
 
                 <div class="mt-6 flex justify-center">
                     <!-- Botón -->
-                    <button id="get-suggestions" class="inline-flex items-center justify-center bg-blue-500 hover:bg-blue-400
+                    <button type="button"  id="get-suggestions"  class="inline-flex items-center justify-center bg-blue-500 hover:bg-blue-400
                          text-white font-semibold px-6 py-3 rounded-xl transition-colors">
                         Get suggestions
                     </button>
@@ -116,7 +116,7 @@
 
             <section class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 mt-6">
                 <h3 class="text-xl font-semibold">About</h3>
-                <div id="about" class="mt-3 text-slate-300 text-sm">
+                <div id="about" class="mt-3 text-slate-300 text-sm" aria-live="polite">
                     Search to see a quick summary here.
                 </div>
             </section>
@@ -126,7 +126,7 @@
 
                 <h3 class="text-xl font-semibold">Results</h3>
 
-                <div class="mt-4 grid gap-4" id="results">
+                <div class="mt-4 grid gap-4" id="results" aria-live="polite">
                     <p class="text-slate-400 text-sm">Choose filters and click “Get suggestions”.</p>
                 </div>
 
@@ -135,12 +135,12 @@
             <section class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 mt-6">
                 <div class="flex items-center justify-between gap-3 flex-wrap">
                     <h3 class="text-xl font-semibold">Favorites</h3>
-                    <button id="clear-favorites" class="text-slate-300 hover:text-red-300 transition-colors text-sm">
+                    <button type="button"  id="clear-favorites"  class="text-slate-300 hover:text-red-300 transition-colors text-sm">
                         Clear all
                     </button>
                 </div>
 
-                <div id="favorites" class="mt-4 grid gap-4">
+                <div id="favorites" class="mt-4 grid gap-4" aria-live="polite">
                     <p class="text-slate-400 text-sm">No favorites yet. Add some songs!</p>
                 </div>
             </section>
@@ -151,7 +151,7 @@
             <div class="mt-10 py-6 text-slate-400 text-sm text-center">
 
                 <p>© 2026 Guitar Learner Practice BYUI WWD-330</p>
-                <p class="dev-credit">Desarrollado por <a
+                <p class="dev-credit">Desarrollado por Sergio Herrera <a
                         href="https://seruhio30.github.io/Portfolio-SeruhioCode30-Front-End/"
                         target="_blank">SeruhioCode30</a></p>
             </div>

@@ -15,9 +15,9 @@ const queryInput = document.querySelector("#query");
 // Inicializa UI de favoritos (lista + remove + clear)
 initFavoritesUI();
 
-/* ================================================== */
-   //UX: Disable button if empty
-   
+/* =====================UX: Disable button if empty============================= */
+
+
 function updateSuggestButtonState() {
   const q = queryInput.value.trim();
 
@@ -38,9 +38,9 @@ function updateSuggestButtonState() {
 queryInput.addEventListener("input", updateSuggestButtonState);
 updateSuggestButtonState();
 
-/* ================================================== */
-   //Favorites: add from results
-   
+/* ====================Favorites: add from results============================== */
+
+
 resultsContainer.addEventListener("click", (e) => {
   const btn = e.target.closest(".fav-btn");
   if (!btn) return;
@@ -57,9 +57,9 @@ resultsContainer.addEventListener("click", (e) => {
   if (added) renderFavorites();
 });
 
-/* ================================================== */
-   //Search + render + Wikipedia
-  
+/* ======================Search + render + Wikipedia============================ */
+
+
 buttonSuggest.addEventListener("click", async () => {
   const level = document.querySelector('input[name="level"]:checked')?.value;
   const type = document.querySelector('input[name="type"]:checked')?.value;
@@ -71,9 +71,13 @@ buttonSuggest.addEventListener("click", async () => {
     return;
   }
 
-  /* ======================================================================= */
-     //VIDEOS fallback (no YouTube API key)
-    
+  resultsContainer.innerHTML = `<p class="text-slate-400 text-sm">Loading results...</p>`;
+  aboutEl.textContent = "Loading summary...";
+
+
+  /* ==========================VIDEOS fallback (no YouTube API key)============================================= */
+  
+
   if (type === "videos") {
     const yt = `https://www.youtube.com/results?search_query=${encodeURIComponent(
       query + " guitar tutorial"
@@ -104,13 +108,12 @@ buttonSuggest.addEventListener("click", async () => {
           aboutEl.innerHTML = `
             <p class="font-semibold text-slate-100">${summary.title}</p>
             <p class="mt-2 text-slate-300 text-sm">${summary.extract}</p>
-            ${
-              summary.url
-                ? `<a href="${summary.url}" target="_blank" rel="noopener"
+            ${summary.url
+              ? `<a href="${summary.url}" target="_blank" rel="noopener"
                     class="mt-3 inline-flex text-blue-400 hover:text-blue-300 transition-colors">
                     Read more
                   </a>`
-                : ""
+              : ""
             }
           `;
         }
@@ -123,9 +126,9 @@ buttonSuggest.addEventListener("click", async () => {
     return;
   }
 
-  /* ============================================================== */
-     //SONGS: iTunes (API #1)
-     
+  /* ==========================SONGS: iTunes (API #1)==================================== */
+  
+
   let results = [];
   try {
     results = await getSuggestions({ type, level, query });
@@ -155,12 +158,11 @@ buttonSuggest.addEventListener("click", async () => {
 
       return `
         <article class="bg-slate-900/40 border border-slate-700 rounded-xl p-4">
-          <div class="flex gap-3">
-            ${
-              item.thumbnail
-                ? `<img src="${item.thumbnail}" class="w-16 h-16 rounded-lg object-cover" alt="">`
-                : ""
-            }
+          <div class="flex gap-3" aria-live="polite">
+            ${item.thumbnail
+          ? `<img src="${item.thumbnail}" class="w-16 h-16 rounded-lg object-cover" alt="">`
+          : ""
+        }
             <div class="min-w-0">
               <h4 class="text-slate-100 font-semibold truncate">${item.title}</h4>
               <p class="mt-1 text-slate-400 text-sm truncate">${item.subtitle ?? ""}</p>
@@ -168,7 +170,7 @@ buttonSuggest.addEventListener("click", async () => {
             </div>
           </div>
 
-          <div class="mt-3 flex items-center gap-3 flex-wrap">
+          <div class="mt-3 flex items-center gap-3 flex-wrap" >
             <a href="${item.url}" target="_blank" rel="noopener"
               class="inline-flex text-blue-400 hover:text-blue-300 transition-colors">
               Open
@@ -190,9 +192,9 @@ buttonSuggest.addEventListener("click", async () => {
 
   resultsContainer.innerHTML = html;
 
-  /* ================================================================*/
-    // Wikipedia (API #2)
-     
+  /* ============================Wikipedia (API #2)====================================*/
+  
+
   if (aboutEl) aboutEl.textContent = "Loading summary...";
   try {
     const summary = await getWikiSummary(query);
@@ -206,13 +208,12 @@ buttonSuggest.addEventListener("click", async () => {
       aboutEl.innerHTML = `
         <p class="font-semibold text-slate-100">${summary.title}</p>
         <p class="mt-2 text-slate-300 text-sm">${summary.extract}</p>
-        ${
-          summary.url
-            ? `<a href="${summary.url}" target="_blank" rel="noopener"
+        ${summary.url
+          ? `<a href="${summary.url}" target="_blank" rel="noopener"
                 class="mt-3 inline-flex text-blue-400 hover:text-blue-300 transition-colors">
                 Read more
               </a>`
-            : ""
+          : ""
         }
       `;
     }

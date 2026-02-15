@@ -30,16 +30,19 @@ function outputSession(session) {
   //aqui genera dinamicamente por name, minutes and details of session created
   const stepsHtml = session.steps
     .map(step => {
-
-      const itemsHtml = step.items
+      const itemsHtml = Array.isArray(step.items) && step.items.length
         ? `
-        <ul style="margin-top:8px; padding-left:16px;">
-          ${step.items.map(item => `
-            <li style="margin-bottom:8px;">
-              <strong>${item.name} (${item.key})</strong><br>
-              Pattern: ${item.pattern}<br>
-              Tempo: ${item.tempo} · Reps: ${item.reps}<br>
-              Tip: ${item.tips}
+        <ul class="mt-2 grid gap-2">
+          ${step.items.map(it => `
+            <li class="bg-slate-900/40 border border-slate-700 rounded-xl p-3">
+              <p class="text-slate-100 font-semibold">${it.name}</p>
+              <p class="text-slate-400 text-sm">
+                ${it.reps ? `<span><strong>Reps:</strong> ${it.reps}</span> · ` : ""}
+                ${it.tempo ? `<span><strong>Tempo:</strong> ${it.tempo}</span> · ` : ""}
+                ${it.pattern ? `<span><strong>Pattern:</strong> ${it.pattern}</span> · ` : ""}
+                ${it.list ? `<span><strong>Chords:</strong> ${it.list}</span> · ` : ""}
+                ${it.tips ? `<span><strong>Tip:</strong> ${it.tips}</span>` : ""}
+              </p>
             </li>
           `).join("")}
         </ul>
@@ -47,9 +50,9 @@ function outputSession(session) {
         : "";
 
       return `
-      <li style="margin-bottom:12px;">
-        <strong>${step.name}</strong> - ${step.minutes} min<br>
-        <span>${step.details}</span>
+      <li class="bg-slate-900/40 border border-slate-700 rounded-xl p-4">
+        <p class="text-slate-100 font-semibold">${step.name} — ${step.minutes} min</p>
+        <p class="mt-1 text-slate-300 text-sm">${step.details}</p>
         ${itemsHtml}
       </li>
     `;
@@ -63,9 +66,10 @@ function outputSession(session) {
             <p><strong>Level:</strong> ${session.level} · <strong>Focus:</strong>
              ${session.focus}</p>
 
-            <ol>
-                ${stepsHtml}
-            </ol> `;
+            <ol class="mt-4 grid gap-4">
+              ${stepsHtml}
+              </ol>
+            `;
 
 }
 
@@ -86,7 +90,8 @@ function renderTime() {
 }
 
 btnStart?.addEventListener("click", () => {
-  if (timerId) return; // evita múltiples intervalos
+  // evita múltiples intervalos
+  if (timerId) return; 
   timerId = setInterval(() => {
     seconds++;
     renderTime();
@@ -153,8 +158,15 @@ function renderCompletedCount() {
 
 
 completeBtn?.addEventListener("click", () => {
+  const msgEl = document.querySelector("#practice-msg");
+  if (msgEl) msgEl.textContent = "";
+
   const last = localStorage.getItem("lastSession");
-  if (!last) return;
+  if (!last) {
+    if (msgEl) msgEl.textContent = "Generate a session first, then complete it.";
+    return;
+  }
+
 
   const session = JSON.parse(last);
   const totalMinutes = (session.steps || []).reduce(
@@ -169,6 +181,7 @@ completeBtn?.addEventListener("click", () => {
     focus: session.focus,
     totalMinutes
   });
+  if (msgEl) msgEl.textContent = "Session saved ✅";
 
   setCompletedSessions(list);
   renderCompletedCount();

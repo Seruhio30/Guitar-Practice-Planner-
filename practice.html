@@ -102,7 +102,7 @@
                     <h2 class="text-xl md:text-2xl font-semibold">Today’s session</h2>
                 </div>
 
-                <div class="session-container mt-4 bg-slate-900/40 border border-slate-700 rounded-xl p-4">
+                <div aria-live="polite" class="session-container mt-4 bg-slate-900/40 border border-slate-700 rounded-xl p-4">
                     <p class="placeholder text-slate-400 text-sm">Select your preferences and generate a session.</p>
 
                 </div>
@@ -115,17 +115,17 @@
                 <div id="timer-display" class="mt-3 text-3xl font-semibold">00:00</div>
 
                 <div class="mt-4 flex gap-3 flex-wrap">
-                    <button id="timer-start"
+                    <button type="button" id="timer-start"
                         class="bg-blue-500 hover:bg-blue-400 text-white font-semibold px-4 py-2 rounded-xl transition-colors">
                         Start
                     </button>
 
-                    <button id="timer-pause"
+                    <button type="button"  id="timer-pause"
                         class="bg-slate-700 hover:bg-slate-600 text-white font-semibold px-4 py-2 rounded-xl transition-colors">
                         Pause
                     </button>
 
-                    <button id="timer-reset"
+                    <button type="button"  id="timer-reset"
                         class="bg-slate-800 hover:bg-slate-700 text-white font-semibold px-4 py-2 rounded-xl transition-colors border border-slate-700">
                         Reset
                     </button>
@@ -143,10 +143,12 @@
 
 
                 <div class="mt-4">
-                    <button id="complete-session"
+                    <button type="button"  id="complete-session"
                         class="bg-green-600 hover:bg-green-500 text-white font-semibold px-4 py-2 rounded-xl transition-colors">
                         Complete session
                     </button>
+                    <p id="practice-msg" class="mt-3 text-slate-400 text-sm"></p>
+
                 </div>
             </section>
 
@@ -157,7 +159,7 @@
             <div class="mt-10 py-6 text-slate-400 text-sm text-center">
 
                 <p>© 2026 Guitar Learner Practice BYUI WWD-330</p>
-                <p class="dev-credit">Desarrollado por <a
+                <p class="dev-credit">Desarrollado por Sergio Herrera <a
                         href="https://seruhio30.github.io/Portfolio-SeruhioCode30-Front-End/"
                         target="_blank">SeruhioCode30</a></p>
             </div>

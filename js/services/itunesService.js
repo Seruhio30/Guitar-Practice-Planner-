@@ -8,7 +8,7 @@ export async function searchSongsItunes(query, limit = 6) {
 
     const data = await res.json();
 
-    // Normalizamos al “shape” de tu app
+    // Normaliza al “shape” de la app
     return (data.results || []).map((r) => ({
         id: String(r.trackId),
         title: r.trackName,
