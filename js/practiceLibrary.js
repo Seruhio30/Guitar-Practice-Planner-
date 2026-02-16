@@ -3,7 +3,7 @@ export const scalesLibrary = {
     {
       name: "Minor Pentatonic",
       key: "A",
-      pattern: "Box 1 (5th fret)",
+      pattern: "Box 1 (5th fret)",  
       tempo: "60–80 BPM",
       reps: "4x up/down",
       tips: "Alternate picking, focus on clean notes"
